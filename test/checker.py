@@ -42,6 +42,7 @@ def checkUntilNewTest(sol_file, out_file):
 
         # Check Not Same
         if sol_line != out_line:
+            print(sol_line, out_line)
             # Move to next test
             if next_test_substr not in sol_line:
                 readUntilContains(sol_file, next_test_substr)
@@ -81,7 +82,7 @@ for test_num in range(len(test_list)):
         print("SKIP")
     else:
         if checkUntilNewTest(solution_file, output_file):
-            print("PASS")
+            print("PASS", score)
             score += test_score
         else:
             print("FAIL")
